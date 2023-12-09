@@ -1,7 +1,28 @@
 <?php
 
 use Illuminate\Support\Str;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
+class CreateStudentsTable extends Migration
+{
+public function up()
+    {
+    Schema::create('students', function (Blueprint $table) {
+        $table->id();
+        $table->string('nama');
+        $table->string('alamat');
+        $table->date('tanggal_lahir');
+        $table->timestamps();
+    });
+}
+
+public function down()
+{
+    Schema::dropIfExists('students');
+}
+}
 return [
 
     /*
@@ -83,9 +104,9 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'restoran_padang'),
+            'username' => env('DB_USERNAME', 'Nandi'),
+            'password' => env('DB_PASSWORD', 'sahrul123'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
